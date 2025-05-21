@@ -14,5 +14,12 @@ public class HTMLManager {
   public Queue<HTMLTag> getTags(){
     return tags;
   }
+  public String toString(){
+  String str = "";
+   for( HTMLTag tag : tags){
+      str += tag.toString().trim();
+   }
+   return str;
+  }
   
 }
