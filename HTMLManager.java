@@ -1,25 +1,30 @@
 import java.util.*;
 
 public class HTMLManager {
-  private Queue<HTMLTag> tags;
-  public HTMLManager(Queue<HTMLTag> html){
+   private Queue<HTMLTag> tags;
+   public HTMLManager(Queue<HTMLTag> html){
      tags = new LinkedList<>();
      if(html == null){
        throw new IllegalArgumentException();
      } 
      for(HTMLTag tag : html) {
-      tags.add(tag);
+       tags.add(tag);
      }
   }
+  
   public Queue<HTMLTag> getTags(){
-    return tags;
+     return tags;
   }
+  
   public String toString(){
-  String str = "";
-   for( HTMLTag tag : tags){
+     String str = "";
+     int size = tags.size();
+     for( int i = 0; i < size; i++){
+      HTMLTag tag = tags.remove();
       str += tag.toString().trim();
-   }
-   return str;
+      tags.add(tag);
+     }
+     return str;
   }
   public void fixHTML(){
     Stack<HTMLTag> ta = new Stack<>();
@@ -33,5 +38,6 @@ public class HTMLManager {
     
   
   }
+  
   
 }
