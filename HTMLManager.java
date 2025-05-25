@@ -28,16 +28,10 @@ public class HTMLManager {
   }
   public void fixHTML(){
     Stack<HTMLTag> ta = new Stack<>();
-    int quueSize = tags.size();
-    for(int i = 0; i < quueSize; i++){
-       HTMLTag tag = tags.remove();
-       if(tag.isSelfClosing()){
-         return true;
-       }
-    }
-    
+     Queue<HTMLTag> qu = new LinkedList<>();
   
   }
+     
   
   
 }
