@@ -29,6 +29,33 @@ public class HTMLManager {
   public void fixHTML(){
     Stack<HTMLTag> ta = new Stack<>();
      Queue<HTMLTag> qu = new LinkedList<>();
+     while(!tags.isEmpty()){
+       HTMLTag cur = tags.remove();
+        if(cur.isSelfClosing()){
+           qu.add(cur);
+        }
+        else if(cur.isOpening()){
+           qu.add(cur);
+           ta.push(cur);
+       }
+       else if(cur.isClosing()){
+         if(ta.isEmpty()){
+         }
+         else{
+            HTMLTag top = ta.peek();
+            if(top.matches(cur)){
+               qu.add(cur);
+               ta.pop();
+            }
+            else{
+             HTMLTag find = ta.pop().getMatching();
+               qu.add(find);
+            }
+        
+         }
+      }
+    }
+
   
   }
      
