@@ -55,6 +55,13 @@ public class HTMLManager {
          }
       }
     }
+        while(!ta.isEmpty()){
+       HTMLTag remainOpe = ta.pop();
+       HTMLTag remainCLO = remainOpe.getMatching();
+       qu.add(remainCLO);
+       
+       }
+       this.tags = qu;
 
   
   }
